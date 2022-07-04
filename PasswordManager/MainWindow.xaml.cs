@@ -27,20 +27,32 @@ namespace PasswordManager
         string path = "passwords.json";
         public MainWindow()
         {
-            while (!File.Exists("settings.json"))
+            if (!File.Exists("settings.json"))
             {
                 UserAuthWindow authWindow = new UserAuthWindow();
                 authWindow.ShowDialog();
             }
 
             LogInWindow lw = new LogInWindow();
-            while (lw.flag == false)
+
+            if (!File.Exists("settings.json"))
+            {
+                System.Windows.Application.Current.Shutdown();
+            }
+
+            if (lw.flag == false && File.Exists("settings.json"))
             {
                 lw.ShowDialog();
             }
 
-            InitializeComponent();
-
+            if (lw.flag == true)
+            {
+                InitializeComponent();
+            }
+            else
+            {
+                System.Windows.Application.Current.Shutdown();
+            }
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
