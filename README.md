@@ -6,7 +6,7 @@ A simple WPF application which allows you store passwords for various applicatio
   <li>Open the EXE</li>
   <li>All relevant setting/password files will be generated in that folder<li/>
 </ol>
-## Things to do
+# Things to do
 <ol>
   <li>Encrypt settings and passwords files</li>
   <li>Add the ability to change user credentials</li>
