@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PasswordManager"
         mc:Ignorable="d"
-        Title="LogInWindow" Height="450" Width="800"
-        ResizeMode="NoResize">
+        Title="Password Manager" Height="450" Width="800"
+        ResizeMode="NoResize"
+        Background="#495867"
+        FontFamily="Century gothic">
     <Grid>
         <Grid>
             <Grid.RowDefinitions>
@@ -23,7 +25,7 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="50"/>
                 </Grid.RowDefinitions>
-                <Label Content="Log In" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30"/>
+                <Label Content="Log In" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30" Foreground="#BDD5EA"/>
                 <Grid Grid.Row="1">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
@@ -34,11 +36,11 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Label Content="Username: " Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="20"/>
+                    <Label Content="Username: " Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="20" Foreground="#BDD5EA"/>
                     <TextBox Width="100" Height="25" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" x:Name="username"/>
-                    <Label Content="Password: " Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="20"/>
+                    <Label Content="Password: " Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="20" Foreground="#BDD5EA"/>
                     <TextBox Width="100" Height="25" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" x:Name="password"/>
-                    <Button Content="Log In" Grid.Row="2" Grid.ColumnSpan="2" Width="100" Height="40" Click="LogIn"/>
+                    <Button Content="Log In" Grid.Row="2" Grid.ColumnSpan="2" Width="100" Height="40" Click="LogIn" Background="#BDD5EA" Foreground="#495867" FontSize="15"/>
                 </Grid>
             </Grid>
         </Grid>

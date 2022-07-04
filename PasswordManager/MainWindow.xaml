@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PasswordManager"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded" Closing="Window_Closing"
-        ResizeMode="NoResize">
+        Title="Password Manager" Height="450" Width="800" Loaded="Window_Loaded" Closing="Window_Closing"
+        ResizeMode="NoResize"
+        Background="#495867"
+        FontFamily="Century gothic">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -18,10 +20,10 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="200"/>
         </Grid.ColumnDefinitions>
-        <Label Content="Password Manager" Grid.Column="1" Grid.Row="0"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="30"/>
+        <Label Content="Password Manager" Grid.Column="1" Grid.Row="0"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="30" Foreground="#BDD5EA"/>
         <StackPanel Grid.Column="2" Orientation="Horizontal">
-            <Label Content="Search: " VerticalAlignment="Center"/>
-            <TextBox x:Name="searchBox" Height="15" Width="100" Grid.Column="2" VerticalAlignment="Center" TextChanged="TextBox_TextChanged"/>
+            <Label Content="Search: " VerticalAlignment="Center" Foreground="#BDD5EA" FontSize="15"/>
+            <TextBox x:Name="searchBox" Height="20" Width="100" Grid.Column="2" VerticalAlignment="Center" TextChanged="TextBox_TextChanged"/>
         </StackPanel >
         <ListView x:Name="passwords" Grid.Column="1" Grid.Row="1">
             <ListView.View>
@@ -42,14 +44,14 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Label Content="Program/Website: "  Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
-            <TextBox x:Name="programName" Grid.Row="1" Width="120" Height="20" VerticalAlignment="top"/>
-            <Label Content="Username: " Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
-            <TextBox x:Name="userName" Grid.Row="3" VerticalAlignment="Top" Width="120" Height="20"/>
-            <Label Content="Password: " HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Bottom"/>
-            <TextBox x:Name="passwordInput" Grid.Row="5" Width="120" Height="20" VerticalAlignment="top"/>
-            <Button Content="Add Password" Grid.Row="6" Width="110" Height="25" Click="Button_Click"/>
+            <Label Content="Program/Website: "  Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" Foreground="#BDD5EA"/>
+            <TextBox x:Name="programName" Grid.Row="1" Width="120" Height="25" VerticalAlignment="top"/>
+            <Label Content="Username: " Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Center" Foreground="#BDD5EA"/>
+            <TextBox x:Name="userName" Grid.Row="3" VerticalAlignment="Top" Width="120" Height="25"/>
+            <Label Content="Password: " HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Bottom" Foreground="#BDD5EA"/>
+            <TextBox x:Name="passwordInput" Grid.Row="5" Width="120" Height="25" VerticalAlignment="top"/>
+            <Button Content="Add Password" Grid.Row="6" Width="110" Height="40" Click="Button_Click" Background="#BDD5EA" Foreground="#495867" FontSize="10"/>
         </Grid>
-        <Button Content="Delete" Grid.Column="0" Grid.Row="1" Width="100" Height="30" Click="DeletePassword"/>
+        <Button Content="Delete" Grid.Column="0" Grid.Row="1" Width="100" Height="30" Click="DeletePassword" Background="#BDD5EA" Foreground="#495867" FontSize="15"/>
     </Grid>
 </Window>
