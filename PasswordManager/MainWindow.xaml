@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PasswordManager"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded" Closing="Window_Closing">
+        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded" Closing="Window_Closing"
+        ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -49,6 +50,6 @@
             <TextBox x:Name="passwordInput" Grid.Row="5" Width="120" Height="20" VerticalAlignment="top"/>
             <Button Content="Add Password" Grid.Row="6" Width="110" Height="25" Click="Button_Click"/>
         </Grid>
-        <Button Content="Delete" Grid.Column="0" Grid.Row="1" Width="100" Height="30" Click="Button_Click_1"/>
+        <Button Content="Delete" Grid.Column="0" Grid.Row="1" Width="100" Height="30" Click="DeletePassword"/>
     </Grid>
 </Window>

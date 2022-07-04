@@ -24,18 +24,30 @@ namespace PasswordManager
     public partial class MainWindow : Window
     {
         List<Password> pw = new List<Password>();
-        List<Password> hold = new List<Password>();
         string path = "passwords.json";
         public MainWindow()
         {
+            while (!File.Exists("settings.json"))
+            {
+                UserAuthWindow authWindow = new UserAuthWindow();
+                authWindow.ShowDialog();
+            }
+
+            LogInWindow lw = new LogInWindow();
+            while (lw.flag == false)
+            {
+                lw.ShowDialog();
+            }
+
             InitializeComponent();
+
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            if (File.Exists(path))
+            if (File.Exists(path) && new FileInfo(path).Length > 0)
             {
-               using (StreamReader r = new StreamReader(path))
+                using (StreamReader r = new StreamReader(path))
                 {
                     string json = r.ReadToEnd();
                     pw = JsonSerializer.Deserialize<List<Password>>(json);
@@ -44,7 +56,7 @@ namespace PasswordManager
                 passwords.Items.Refresh();
 
             }
-            
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -53,7 +65,7 @@ namespace PasswordManager
             var user = userName.Text;
             var password = passwordInput.Text;
 
-            if(program != null && user != null && password != null)
+            if (program != null && user != null && password != null)
             {
                 pw.Add(new Password(program, user, password));
                 passwords.ItemsSource = pw;
@@ -62,14 +74,14 @@ namespace PasswordManager
                 programName.Clear();
                 userName.Clear();
                 passwordInput.Clear();
-            }    
+            }
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             List<Password> search = new List<Password>();
 
-            for(int i = 0; i < pw.Count; i++)
+            for (int i = 0; i < pw.Count; i++)
             {
                 if (pw[i].Program.ToUpper().Contains(searchBox.Text.ToUpper()))
                 {
@@ -83,27 +95,34 @@ namespace PasswordManager
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-     
-                StreamWriter tw = new StreamWriter(path);
-      
-                string listToString = JsonSerializer.Serialize(pw);
 
-                if (pw.Count > 0)
-                {
-                    tw.WriteLine(listToString);
-                }
+            StreamWriter tw = new StreamWriter(path);
 
-                tw.Close();
-            
+            string listToString = JsonSerializer.Serialize(pw);
+
+            if (pw.Count > 0)
+            {
+                tw.WriteLine(listToString);
+            }
+
+            tw.Close();
+            System.Windows.Application.Current.Shutdown();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void DeletePassword(object sender, RoutedEventArgs e)
         {
-            if(passwords.SelectedItem != null)
+            if (passwords.SelectedIndex == -1)
             {
-               
-                
-               
+                MessageBox.Show("Please select an item to delete!");
+            }
+            else
+            {
+                if (MessageBox.Show("Delete Password?", "Delete Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                {
+                    pw.RemoveAt(passwords.SelectedIndex);
+                    passwords.ItemsSource = pw;
+                    passwords.Items.Refresh();
+                }
             }
         }
     }
