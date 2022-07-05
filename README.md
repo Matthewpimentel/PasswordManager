@@ -1,9 +1,10 @@
 # PasswordManager
 A simple WPF application which allows you store passwords for various applications/websites.
 ## How to run?
-  1. Download the Password Manager Release folder
-  2. Open the EXE
-  3. All relevant setting/password files will be generated in that folder
+  1. Download the PWsetup folder
+  2. Run the setup
+  3. Choose where you want it to be installed
+  4. A shortcut will be created on desktop
 ## Things to do
   1. Encrypt settings and passwords files
   2. Add the ability to change user credentials
