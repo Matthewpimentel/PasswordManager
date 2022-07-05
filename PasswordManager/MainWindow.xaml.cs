@@ -24,10 +24,11 @@ namespace PasswordManager
     public partial class MainWindow : Window
     {
         List<Password> pw = new List<Password>();
-        string path = "passwords.json";
+        string path = Directory.GetCurrentDirectory() + "\\passwords.json";
+        string settingsPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\settings.json";
         public MainWindow()
         {
-            if (!File.Exists("settings.json"))
+            if (!File.Exists(settingsPath))
             {
                 UserAuthWindow authWindow = new UserAuthWindow();
                 authWindow.ShowDialog();
@@ -35,12 +36,12 @@ namespace PasswordManager
 
             LogInWindow lw = new LogInWindow();
 
-            if (!File.Exists("settings.json"))
+            if (!File.Exists(settingsPath))
             {
                 System.Windows.Application.Current.Shutdown();
             }
 
-            if (lw.flag == false && File.Exists("settings.json"))
+            if (lw.flag == false && File.Exists(settingsPath))
             {
                 lw.ShowDialog();
             }

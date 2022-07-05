@@ -21,7 +21,7 @@ namespace PasswordManager
     /// </summary>
     public partial class LogInWindow : Window
     {
-        string settingsPath = "settings.json";
+        string settingsPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\settings.json";
         public bool flag = false;
         public LogInWindow()
         {

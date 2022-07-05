@@ -21,7 +21,7 @@ namespace PasswordManager
     /// </summary>
     public partial class UserAuthWindow : Window
     {
-        string settingsPath = "settings.json";
+        string settingsPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\settings.json";
         public UserAuthWindow()
         {
             InitializeComponent();
