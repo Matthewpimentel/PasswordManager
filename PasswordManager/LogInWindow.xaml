@@ -8,7 +8,7 @@
         Title="Password Manager" Height="450" Width="800"
         ResizeMode="NoResize"
         Background="#495867"
-        FontFamily="Century gothic">
+        FontFamily="Century gothic" Icon="/favicon-32x32.png">
     <Grid>
         <Grid>
             <Grid.RowDefinitions>
