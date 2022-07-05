@@ -1,5 +1,5 @@
 # PasswordManager
-A simple WPF application which allows you store passwords for various applications/websites.
+A WPF application which allows you store passwords for various applications/websites.
 ## How to run?
   1. Download the PWsetup folder
   2. Run the setup
